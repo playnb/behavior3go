@@ -66,7 +66,7 @@ func (this *BTNodeCfg) GetPropertyAsBool(name string) bool {
 func (this *BTNodeCfg) GetPropertyAsString(name string) string {
 	v, ok := this.Properties[name]
 	if !ok {
-		panic("GetProperty err ,no vlaue:" + name)
+		//panic("GetProperty err ,no vlaue:" + name)
 		return ""
 	}
 
