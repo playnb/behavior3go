@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"reflect"
 )
+
 /**
  * The Blackboard is the memory structure required by `BehaviorTree` and its
  * nodes. It only have 2 public methods: `set` and `get`. These methods works
@@ -70,8 +71,9 @@ func (this *Memory) Set(key string, val interface{}) {
 	this._memory[key] = val
 }
 func (this *Memory) Remove(key string) {
-	delete(this._memory,key)
+	delete(this._memory, key)
 }
+
 //------------------------TreeMemory-------------------------
 type TreeMemory struct {
 	*Memory
@@ -195,6 +197,9 @@ func (this *Blackboard) _getTreeData(treeScope string) *TreeData {
 	treeMem := this._getTreeMemory(treeScope)
 	return treeMem._treeData
 }
+func (this *Blackboard) RemoveTreeScope(treeScope string) {
+	this._treeMemory[treeScope] = NewTreeMemory()
+}
 
 /**
  * Retrieves a value in the blackboard. If treeScope and nodeScope are
@@ -275,7 +280,7 @@ func (this *Blackboard) GetInt32(key, treeScope, nodeScope string) int32 {
 	return v.(int32)
 }
 
-func ReadNumberToInt64(v interface{})  int64 {
+func ReadNumberToInt64(v interface{}) int64 {
 	var ret int64
 	switch tvalue := v.(type) {
 	case uint64:
@@ -297,6 +302,7 @@ func ReadNumberToUInt64(v interface{}) uint64 {
 	}
 	return ret
 }
+
 //
 //func ReadNumberToInt32(v interface{}) int32 {
 //	var ret int32

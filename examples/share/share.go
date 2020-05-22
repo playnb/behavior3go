@@ -2,12 +2,12 @@ package share
 
 import (
 	"fmt"
-	b3 "github.com/magicsea/behavior3go"
-	//. "github.com/magicsea/behavior3go/actions"
-	//. "github.com/magicsea/behavior3go/composites"
-	. "github.com/magicsea/behavior3go/config"
-	. "github.com/magicsea/behavior3go/core"
-	//. "github.com/magicsea/behavior3go/decorators"
+	b3 "github.com/playnb/behavior3go"
+	//. "github.com/playnb/behavior3go/actions"
+	//. "github.com/playnb/behavior3go/composites"
+	. "github.com/playnb/behavior3go/config"
+	. "github.com/playnb/behavior3go/core"
+	//. "github.com/playnb/behavior3go/decorators"
 )
 
 //自定义action节点

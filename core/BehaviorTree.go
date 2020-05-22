@@ -3,8 +3,8 @@ package core
 import (
 	"fmt"
 
-	b3 "github.com/magicsea/behavior3go"
-	"github.com/magicsea/behavior3go/config"
+	b3 "github.com/playnb/behavior3go"
+	"github.com/playnb/behavior3go/config"
 )
 
 /**
