@@ -71,6 +71,17 @@ func NewTick() *Tick {
 	return tick
 }
 
+func SimpleTick(blackboard *Blackboard, tree *BehaviorTree) *Tick {
+	return &Tick{
+		tree:       tree,
+		debug:      nil,
+		target:     nil,
+		Blackboard: blackboard,
+		_openNodes: nil,
+		_nodeCount: 0,
+	}
+}
+
 /**
  * Initialization method.
  * @method Initialize
