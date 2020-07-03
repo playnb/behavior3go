@@ -185,6 +185,12 @@ func (this *Blackboard) Set(key string, value interface{}, treeScope, nodeScope 
 	var memory = this._getMemory(treeScope, nodeScope)
 	memory.Set(key, value)
 }
+
+func (this *Blackboard) SetMem(key string, value interface{}) {
+	var memory = this._getMemory("", "")
+	memory.Set(key, value)
+}
+
 func (this *Blackboard) Remove(key string) {
 	var memory = this._getMemory("", "")
 	memory.Remove(key)
@@ -219,6 +225,10 @@ func (this *Blackboard) RemoveTreeScope(treeScope string) {
 **/
 func (this *Blackboard) Get(key, treeScope, nodeScope string) interface{} {
 	memory := this._getMemory(treeScope, nodeScope)
+	return memory.Get(key)
+}
+func (this *Blackboard) GetMem(key string) interface{} {
+	memory := this._getMemory("","")
 	return memory.Get(key)
 }
 func (this *Blackboard) GetFloat64(key, treeScope, nodeScope string) float64 {
