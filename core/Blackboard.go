@@ -112,10 +112,13 @@ func (this *Blackboard) Initialize() {
  * @protected
 **/
 func (this *Blackboard) _getTreeMemory(treeScope string) *TreeMemory {
-	if _, ok := this._treeMemory[treeScope]; !ok {
-		this._treeMemory[treeScope] = NewTreeMemory()
+	if m, ok := this._treeMemory[treeScope]; !ok {
+		m = NewTreeMemory()
+		this._treeMemory[treeScope] = m
+		return m
+	} else {
+		return m
 	}
-	return this._treeMemory[treeScope]
 }
 
 /**
@@ -130,11 +133,13 @@ func (this *Blackboard) _getTreeMemory(treeScope string) *TreeMemory {
 **/
 func (this *Blackboard) _getNodeMemory(treeMemory *TreeMemory, nodeScope string) *Memory {
 	memory := treeMemory._nodeMemory
-	if _, ok := memory[nodeScope]; !ok {
-		memory[nodeScope] = NewMemory()
+	if m, ok := memory[nodeScope]; !ok {
+		m = NewMemory()
+		memory[nodeScope] = m
+		return m
+	} else {
+		return m
 	}
-
-	return memory[nodeScope]
 }
 
 /**
@@ -228,7 +233,7 @@ func (this *Blackboard) Get(key, treeScope, nodeScope string) interface{} {
 	return memory.Get(key)
 }
 func (this *Blackboard) GetMem(key string) interface{} {
-	memory := this._getMemory("","")
+	memory := this._getMemory("", "")
 	return memory.Get(key)
 }
 func (this *Blackboard) GetFloat64(key, treeScope, nodeScope string) float64 {
